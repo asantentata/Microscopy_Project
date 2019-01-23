@@ -16,56 +16,7 @@ mode=np.arange(3,13+1,1)
 print(mode)
 rad=np.arange(0,28+4,4)
 print(rad)
-currMode=mode[0]
-
-#fileDir='Images/beads  ' + str(mode[0]) + '  14.tiff'
-fileDir='Images/beads  %s  %s.tiff' %(str(mode[0]), str(rad[0]))
-#fileDir='Images/beads  3  0.tiff'
-
-image = Image.open(fileDir)
-imarray=np.asarray(image)
-print(imarray.shape)
-plt.imshow(image,cmap='gray')
-#label_image = io.imread("./images/label-img.png")
-
-print(imarray.min())
-print(imarray.max())
-
-#import cv2
-#plt.hist(imarray,bins='auto'); plt.show()
-
-imvals=imarray.ravel()
-imvals=np.sort(imvals)[::-1]
-print(imvals)
-
-image_0=Image.open('Images/beads  %s  %s.tiff' %(str(currMode),str(rad[0])))
-image_1=Image.open('Images/beads  %s  %s.tiff' %(str(currMode),str(rad[1])))
-image_2=Image.open('Images/beads  %s  %s.tiff' %(str(currMode),str(rad[2])))
-image_3=Image.open('Images/beads  %s %s.tiff' %(str(currMode),str(rad[3])))
-image_4=Image.open('Images/beads  %s %s.tiff' %(str(currMode),str(rad[4])))
-image_5=Image.open('Images/beads  %s %s.tiff' %(str(currMode),str(rad[5])))
-image_6=Image.open('Images/beads  %s %s.tiff' %(str(currMode),str(rad[6])))
-image_7=Image.open('Images/beads  %s %s.tiff' %(str(currMode),str(rad[7])))
-
-#plt.hist(imarray, bins=10); plt.show()
-fig, ax = plt.subplots(figsize=(20, 20))
-plt.subplot(2,4,1)
-plt.imshow(image_0, cmap='gray')
-plt.subplot(2,4,2)
-plt.imshow(image_1, cmap='gray')
-plt.subplot(2,4,3)
-plt.imshow(image_2, cmap='gray')
-plt.subplot(2,4,4)
-plt.imshow(image_3, cmap='gray')
-plt.subplot(2,4,5)
-plt.imshow(image_4, cmap='gray')
-plt.subplot(2,4,6)
-plt.imshow(image_5, cmap='gray')
-plt.subplot(2,4,7)
-plt.imshow(image_6, cmap='gray')
-plt.subplot(2,4,8)
-plt.imshow(image_7, cmap='gray')
-plt.show()
+#currMode=mode[0]
 
 #################################################################
 ## Get plots
