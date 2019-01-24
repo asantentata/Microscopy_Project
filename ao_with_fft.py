@@ -30,6 +30,7 @@ def av_intensity():
 			count = count + 1
 			#print(mode[mode_count])
 			#print(intensity_vals)
+			
 		mode_array[mode_count] = intensity_vals		
 		mode_count = mode_count + 1
 	return mode_array
@@ -93,17 +94,23 @@ def av_freq():
 x = range(10)
 y = range(10)
 
-fig, ax = plt.subplots(nrows=2, ncols=6)
 
-
+fig, ax = plt.subplots(nrows=2, ncols=2)
+#mode=np.arange(3,13+1,1)
+xrange=np.arange(-1.4,0.6,0.4)
+xrange2=np.linspace(-1.4,0.2,100)
 for row in ax:
 	count_row = 1
 	for col in row:
-		count_col = 1
-		col.plot(range(1,9),(np.squeeze(av_freq()[count_row][:], axis=0)),'rx')
-		print(av_freq()[count_row][:])
-		count_row = count_row + 1
-	count_row = count_row + 1	
+		y = (np.squeeze(av_freq()[count_row][2:7], axis=0)) 
+		fitquad=np.polyfit(xrange,y,2)
+		p=np.poly1d(fitquad)
+		#plt.xlabel('radians')
+		#plt.ylabel('Intensity')	
+		col.plot(xrange,y,'rx',xrange2,p(xrange2),'k')#)
+		col.set_ylabel('Intensity')
+		col.set_xlabel('Radians')	
+		count_row = count_row + 1	
 plt.show()
 
 print(range(1,9))
