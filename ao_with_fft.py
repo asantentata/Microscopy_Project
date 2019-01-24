@@ -43,8 +43,8 @@ def plot_spectrum(im_fft):
     plt.colorbar()
 
 
-radius = 256
-cut = 200
+#radius = 256
+#cut = 200
 #function for making a circular mask
 def MakeMask(R, Cut):
             radius = int(R)
@@ -60,7 +60,7 @@ def av_freq():
 	radians = [str(' 0'),str(' 4'),str(' 8'),str('12'),str('16'),str('20'),str('24'),str('28')]
 	#Variables for mask
 	radius = 256
-	cut = 200
+	cut = 30
 	out_mask = MakeMask(radius,cut)
 	in_mask = (MakeMask(radius, cut*0.6))
 	ring_mask = out_mask*((in_mask-1)*-1)
@@ -119,12 +119,12 @@ for row in ax:
 av_freq()
 av_intensity()
 #print("shape of feq array is ",np.shape(av_freq()))
-
+'''
 out_mask = MakeMask(radius,cut)
 in_mask = (MakeMask(radius, cut*0.6))
 ring_mask = out_mask*((in_mask-1)*-1)
 fft2 = fftpack.fft2(imarray)
-
+'''
 #masked_image = fftpack.fftshift(fft2)*ring_mask
 #plt.title('Fourier transform')
 plt.show()
